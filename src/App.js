@@ -3,7 +3,7 @@ import ValidWords from './wordList.txt'
 import Board from "./components/Board"
 import KeyBoard from './components/KeyBoard';
 import { defaultBoard , keys, boardColors, getWordSet } from './components/DefaultValues'; 
-import { useState , createContext, useEffect , useCallback, useLayoutEffect } from "react"
+import { useState , createContext, useEffect , useCallback } from "react"
 
 export const AppContext = createContext();
 
@@ -94,7 +94,7 @@ function App() {
     }
   }, [handleKeyDown])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getWordSet(ValidWords).then((res)=> {
       setTargetWord(res.randomWord);
       setWordSet(res.wordSet);
