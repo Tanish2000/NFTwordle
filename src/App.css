@@ -1,38 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+
+body {
+  background-color: rgb(17, 19, 21);
+  margin : 0;
+  max-height : 100vh;
+} 
+
 .App {
   text-align: center;
+  color : rgb(250, 244, 244);
+  width : 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  margin : 5px;
+  padding : 10px;
+  border-bottom: 2px solid rgba(112, 111, 111, 0.416);
+  border-width: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav span {
+  font-family: 'Salsa', cursive;
+  letter-spacing: 1px;
+  font-size : 2rem;
+  font-weight: 700;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.guess_board {
+  display : flex;
   flex-direction: column;
+  margin : 25px 20px 0;
+  gap : 5px;
+}
+
+.word_row {
+ display : flex;
+ justify-content: center;
+ gap: 8px;
+}
+
+
+.letter_box {
+  width: 60px;
+  height: 60px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border : 2px solid rgb(77, 77, 76);
+  color : rgb(229, 245, 188);
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: 'Salsa', cursive;
 }
 
-.App-link {
-  color: #61dafb;
+.keyboard {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: flex-end;
+  gap : 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.key_row {
+  display : flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height : 30px;
+  padding: 10px;
+  border-radius: 10%;
+  margin : 2px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  background-color: rgb(99, 109, 113);
+  cursor: pointer;
+  font-family: 'Salsa', cursive;
+}
+
+
+#green {
+  background-color: rgb(26, 119, 26) !important;
+}
+
+#yellow {
+  background-color: rgb(163, 163, 15) !important;
+}
+
+#disabled {
+  background-color: rgb(62, 62, 62) !important;
+  opacity: 0.3;
+}
+
+
+@media only screen and (min-width : 450px) {
+  .key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height : 30px;
+    padding: 15px 20px;
+    border-radius: 10%;
+    margin : 2px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    background-color: rgb(99, 109, 113);
+    cursor: pointer;
+    font-family: 'Salsa', cursive;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (max-width : 300px) {
+  .key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height : 30px;
+    padding: 6px;
+    border-radius: 10%;
+    margin : 2px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    background-color: rgb(99, 109, 113);
+    cursor: pointer;
+    font-family: 'Salsa', cursive;
   }
 }
