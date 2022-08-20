@@ -17,7 +17,7 @@ function App() {
   }) 
   const [targetWord, setTargetWord ] = useState(null);
 
-  const onEnter = () => {
+  const onEnter = useCallback(() => {
     if(currAttempt.currLetterPos === 5) {
       const currAttempWord = board[currAttempt.attempt].reduce((acc, letter )=> acc += letter, "").toLowerCase();
       
@@ -46,9 +46,9 @@ function App() {
         currLetterPos : 0
       })
     };
-  }
+  }, [board, boardColor, currAttempt, targetWord, wordSet])
 
-  const onKeyPress = (keyVal) => {
+  const onKeyPress = useCallback((keyVal) => {
     if(currAttempt.currLetterPos > 4) return;
     const newBoard = [...board];
     newBoard[currAttempt.attempt][currAttempt.currLetterPos] = keyVal;
@@ -57,9 +57,9 @@ function App() {
       ...currAttempt,
       currLetterPos : currAttempt.currLetterPos + 1
     })
-  } 
+  }, [board, currAttempt]) 
   
-  const onDelete = () => {
+  const onDelete = useCallback(() => {
     if(currAttempt.currLetterPos === 0 ) return;
     const newBoard = [...board];
     newBoard[currAttempt.attempt][currAttempt.currLetterPos - 1] = "";
@@ -68,7 +68,7 @@ function App() {
       ...currAttempt,
       currLetterPos : currAttempt.currLetterPos - 1
     })
-  }
+  }, [currAttempt, board])
 
   const handleKeyDown = useCallback((e) => {
     if(e.key === "Enter") onEnter();
@@ -80,7 +80,7 @@ function App() {
           onKeyPress(key);
       })  
     }
-  }, [currAttempt])
+  }, [onEnter, onDelete, onKeyPress])
 
   useEffect(()=> {
     document.addEventListener('keydown' , handleKeyDown)

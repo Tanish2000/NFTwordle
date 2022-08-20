@@ -12,9 +12,8 @@ const KeyBoard = () => {
                 if(boardColor[row_idx][col_idx] === 0) newSet.set(letter, boardColor[row_idx][col_idx])
             })
         })
-        // console.log()
         return newSet;
-    }, [boardColor]);
+    }, [boardColor,board]);
 
     return (
         <div className='keyboard'>

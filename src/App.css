@@ -59,6 +59,7 @@ nav span {
   align-items: center;
   justify-content: flex-end;
   gap : 5px;
+  margin-top : 25px;
 }
 
 .key_row {
@@ -123,7 +124,7 @@ nav span {
     justify-content: center;
     flex-wrap: wrap;
     height : 30px;
-    padding: 6px;
+    padding: 5px;
     border-radius: 10%;
     margin : 2px;
     font-weight: 500;
