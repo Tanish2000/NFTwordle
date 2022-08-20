@@ -20,7 +20,7 @@ function App() {
   const onEnter = useCallback(() => {
     if(currAttempt.currLetterPos === 5) {
       const currAttempWord = board[currAttempt.attempt].reduce((acc, letter )=> acc += letter, "").toLowerCase();
-      
+      console.table(currAttempWord, targetWord);
       if(!wordSet.has(currAttempWord)) {
         alert("Invalid Word");
         return;
@@ -96,6 +96,7 @@ function App() {
 
   useEffect(() => {
     getWordSet(ValidWords).then((res)=> {
+      console.log(res)
       setTargetWord(res.randomWord);
       setWordSet(res.wordSet);
     })
