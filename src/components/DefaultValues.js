@@ -25,7 +25,7 @@ export const boardColors = [
 export const getWordSet = async(fileAddress) => {
     const data = await fetch(fileAddress);
     const res = await data.text();
-    const wordsArray = res.split("\r\n");
+    const wordsArray = res.split("\n");
     console.log(wordsArray);
     const randomWord  = wordsArray[Math.floor(Math.random() * wordsArray.length)];
     const wordSet = new Set(wordsArray);
