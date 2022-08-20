@@ -41,11 +41,16 @@ function App() {
         newBoardColor[currAttempt.attempt] = newColorArray;
         setBoardColor(newBoardColor);
       }
+      if(currAttempt.attempt === 5)
+      {
+        alert("Game Over");
+        window.location.reload();
+      }
       setcurrAttempt({
         attempt : currAttempt.attempt + 1,
         currLetterPos : 0
       })
-    };
+    }
   }, [board, boardColor, currAttempt, targetWord, wordSet])
 
   const onKeyPress = useCallback((keyVal) => {
