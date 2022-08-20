@@ -26,7 +26,12 @@ export const getWordSet = async(fileAddress) => {
     const data = await fetch(fileAddress);
     const res = await data.text();
     const wordsArray = res.split("\n");
-    console.log(wordsArray);
+    if(wordsArray[0].length === 6)
+    {
+        for(let x = 0 ; x < wordsArray.length; x++){
+            wordsArray[x] = wordsArray[x].replace('\r','');
+        }
+    }
     const randomWord  = wordsArray[Math.floor(Math.random() * wordsArray.length)];
     const wordSet = new Set(wordsArray);
     return { wordSet , randomWord };   
